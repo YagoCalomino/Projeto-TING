@@ -31,9 +31,19 @@ def process(path_file: str, instance: Queue):  # Função process
 #
 
 
-def remove(instance):
-    """Aqui irá sua implementação"""
+def remove(instance: Queue):
+    if not instance.items:  # Verifica se a fila está vazia
+        print('Não há elementos')
+        return
+
+    path_file = instance.items[0]['nome_do_arquivo']
+    instance.dequeue()  # Remove o primeiro item da fila
+    print(f'Arquivo {path_file} removido com sucesso')
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        file = instance.items[position]
+        print(file)
+    except IndexError:
+        sys.stderr.write('Posição inválida\n')
