@@ -24,7 +24,7 @@ class Queue(AbstractQueue):  # Inicializando a fila
 #
 
     def search(self, index):  # Procura um elemento na fila pelo índice
-        if not 0 <= index < len(self.items):  # Se o índice for inválido, lança uma exceção
+        if not 0 <= index < len(self.items):  # Se o índice for inválido
             raise IndexError("Índice Inválido ou Inexistente")
 
         return self.items[index]  # Retorna o elemento no índice especificado
